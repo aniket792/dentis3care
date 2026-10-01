@@ -1,0 +1,43 @@
+# Netlify configuration for the Dentis3Care static site.
+# There is no build step: Netlify serves the files in this folder as they are.
+
+[build]
+  publish = "."
+  command = ""
+
+# Short links, e.g. dentis3care.netlify.app/dr-jesal
+[[redirects]]
+  from = "/dr-jesal"
+  to = "/dr-jesal-soneta"
+  status = 301
+
+[[redirects]]
+  from = "/dr-niral"
+  to = "/dr-niral-dedhia"
+  status = 301
+
+[[redirects]]
+  from = "/book"
+  to = "https://clinicia.com/calendar/book?u=niraldedhia"
+  status = 302
+
+# Basic security headers. No Content-Security-Policy on purpose:
+# the page embeds Google Maps, Instagram reels and Google Fonts.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Pages always revalidate so edits show up right after a deploy.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/favicon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
