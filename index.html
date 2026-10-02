@@ -299,8 +299,9 @@ html.js .docs article.rv .docphoto{clip-path:inset(10% 10% 10% 10% round 24px);t
 html.js .docs article.rv.in .docphoto{clip-path:inset(0 0 0 0 round 24px)}
 html.js .gs.rv{transform:translateY(28px) scale(.94)}
 html.js .gs.rv.in{transform:none}
-html.js .map.rv{clip-path:inset(0 0 100% 0 round 24px);opacity:1;transform:none;transition:clip-path 1.2s cubic-bezier(.7,0,.2,1)}
-html.js .map.rv.in{clip-path:inset(0 0 0 0 round 24px)}
+html.js .map.rv{opacity:1;transform:none}
+html.js .map.rv iframe{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.7,0,.2,1)}
+html.js .map.rv.in iframe{clip-path:inset(0)}
 .steps li.rv::before{transform:scale(0);transition:transform .6s cubic-bezier(.3,1.6,.5,1) calc(var(--d,0s) + .2s)}
 .steps li.rv.in::before{transform:none}
 .steps li.rv::after{transform:scaleX(0);transform-origin:0 50%;transition:transform .9s cubic-bezier(.6,0,.2,1) calc(var(--d,0s) + .4s)}
@@ -308,7 +309,7 @@ html.js .map.rv.in{clip-path:inset(0 0 0 0 round 24px)}
 .stars{display:inline-block}
 figure.rv.in .stars{animation:starpop .7s cubic-bezier(.3,1.6,.5,1) .3s both}
 @keyframes starpop{from{opacity:0;transform:scale(.6)}}
-@media(prefers-reduced-motion:reduce){html.js .wc article.rv .wi img,html.js .docs article.rv .docphoto,html.js .map.rv,.steps li.rv::before,.steps li.rv::after{transform:none;clip-path:none}.swipe::after,figure.rv.in .stars{animation:none}}
+@media(prefers-reduced-motion:reduce){html.js .wc article.rv .wi img,html.js .docs article.rv .docphoto,html.js .map.rv iframe,.steps li.rv::before,.steps li.rv::after{transform:none;clip-path:none}.swipe::after,figure.rv.in .stars{animation:none}}
 
 /* tooth cursor */
 html{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M16 5C13 3 6 3 6 10c0 5 2 7 3 12 .6 4 1.5 7 3.5 7s2-6 3.5-6 1.5 6 3.5 6 2.9-3 3.5-7c1-5 3-7 3-12 0-7-7-7-10-5z%22 fill=%22%23fff%22 stroke=%22%230A4B2D%22 stroke-width=%222%22 stroke-linejoin=%22round%22/%3E%3Cpath d=%22M10 9c0-2 1.5-3 3-3%22 fill=%22none%22 stroke=%22%233CBE4E%22 stroke-width=%222%22 stroke-linecap=%22round%22/%3E%3C/svg%3E") 8 6,auto}
